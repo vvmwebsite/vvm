@@ -1,10 +1,5 @@
 Django
 gunicorn
-<<<<<<< HEAD
 psycopg2-binary
 whitenoise
 mysqlclient
-=======
-whitenoise 
-mysqlclient
->>>>>>> cc383b2 (ret)
