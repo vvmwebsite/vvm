@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>vvm</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'vvm.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    {% load static %}
+
+
+<nav class="navbar navbar-expand-lg" style="background-color: rgb(33, 0, 34);">
+  <div class="container">
+    <!-- Logo and Text -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <img src="/static/logo.png" alt="Church Logo" class="rounded-circle" style="height: 60px;">
+      <div class="logo-text text-white">
+        <h2 style="font-size: 24px; margin:0;">Village Vision Ministries</h2>
+        <h3 style="font-size: 16px; margin:0;">Jesus With Us Church - Vencode</h3>
+      </div>
+    </a>
+
+    <!-- Hamburger for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" style="color:white;"></span>
+    </button>
+
+    <!-- Menu Items -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item"><a class="nav-link text-white" href="/home/">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/about/">About Ministry</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/live/">Live</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/offerings/">Offerings</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/gallery_folders/">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/contact/">Contact</a></li>
+        <li class="nav-item ms-2">
+          <button class="btn btn-outline-light" onclick="toggleDark()">🌙</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero">
+
+</section>
+<!-- CHURCH INFO -->
+<section class="info">
+    <div class="links-row">
+        <a href="https://youtube.com/@vvmgospelmedia7399?si=hTCwytnQzTI6SGgZ" target="_blank">
+          <i class="fa-brands fa-youtube"></i> YouTube
+        </a>
+
+        <a href="https://www.instagram.com/vvm_vencode?igsh=MW14d3ZtNWgxM24yMw==" target="_blank">
+          <i class="fa-brands fa-instagram"></i> Instagram
+        </a>
+
+        <a href="https://chat.whatsapp.com/EhL9qL9yWd4Jc8rTx4Di5b" target="_blank">
+          <i class="fa-brands fa-whatsapp"></i> WhatsApp
+        </a>
+
+      
+        <a href="{% url 'offerings' %}" class="menu-link">
+          <i class="fa-solid fa-hand-holding-heart"></i> Offerings
+        </a>
+
+    </div>
+</section>
+<section class="live py-5" style="background-color: #121212;">
+  <div class="container">
+    <div class="row align-items-center">
+      
+      <!-- DAILY VERSE IMAGE (LEFT) -->
+      <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+        {% if verse %}
+          <img src="{{ verse.image.url }}" alt="Daily Verse" class="img-fluid rounded shadow w-100">
+        {% else %}
+          <p class="text-white text-center">No verse uploaded</p>
+        {% endif %}
+      </div>
+
+      <!-- WELCOME MESSAGE (RIGHT) -->
+      <div class="col-lg-8 col-md-12">
+        <div class="welcome-box p-4 rounded" style="background-color: #1e1e1e; color: white;">
+          <h2 class="mb-4">Welcome to Village Vision Ministries</h2>
+          <p>
+            Each day, God speaks through His Word.  
+            Our Daily Verse is here to strengthen your faith, renew your hope,  
+            and remind you that God’s promises are true yesterday, today, and forever.
+          </p>
+          <p>
+            No matter what you are facing, this verse is God’s message for you today.  
+            Trust Him, walk in faith, and receive His peace. 🙏
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PASTOR SECTION -->
+<section class="pastor dark-bg py-5">
+  <div class="container">
+    <h2 class="text-center mb-5">Our Pastors</h2>
+
+    <div class="row g-4 justify-content-center">
+      <!-- Pastor S. Tharmaraj -->
+      <div class="col-12 col-md-6 col-lg-5">
+        <div class="card h-100 text-center shadow-sm dark-card">
+          <img src="{% static 'pastor.png' %}" class="card-img-top mx-auto mt-3" 
+               style="width: 270px; height: 300px; object-fit: cover; border-radius: 0.5rem;" 
+               alt="Pastor Image">
+          <div class="card-body">
+            <h5 class="card-title">Pastor S. Tharmaraj</h5>
+            <p class="card-text">
+              Head of Village Vision Ministries-Vencode
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bro. Phinakash -->
+      <div class="col-12 col-md-6 col-lg-5">
+        <div class="card h-100 text-center shadow-sm dark-card">
+          <img src="{% static 'phinakash.jpeg' %}" class="card-img-top mx-auto mt-3" 
+               style="width: 270px; height: 300px; object-fit: cover; border-radius: 0.5rem;" 
+               alt="Bro. Phinakash">
+          <div class="card-body">
+            <h5 class="card-title">Bro. Phinakash</h5>
+            <p class="card-text">
+              Assists in church services and community outreach
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE TIMINGS -->
+     <center><h2 style="font-size: 40px;"> Worship Timings</h2></center>
+<section class="timings">
+
+    <div class="card-grid">
+        <div class="card purple">
+            <i class="fa-solid fa-church"></i>
+            <h3>SUNDAY SERVICE</h3>
+            <p>Every Sunday 9:00 AM to 11:30 AM </p>
+        </div>
+        <div class="card green"> 
+            <i class="fa-solid fa-heart-pulse"></i>
+             <h3>VILLAGE VISION MINISTRY</h3> 
+             <p>Every month 4th week monday,tuesday ,wednesday</p> 
+            </div> 
+
+        <div class="card blue">
+            <i class="fa-solid fa-person-praying"></i>
+            <h3>FASTING PRAYER</h3>
+            <p>Every Friday 10 AM</p>
+        </div>
+
+        <div class="card orange">
+            <i class="fa-solid fa-moon"></i>
+            <h3> NIGHT PRAYER</h3>
+            <p>Every month 3rd Friday 9 PM</p>
+        </div>
+
+        <div class="card red">
+            <i class="fa-solid fa-hands-praying"></i>
+            <h3>PROMISE SERVICE</h3>
+            <p>Every 1st day of Month at 5 AM</p>
+        </div>
+
+        <div class="card pink">
+            <i class="fa-solid fa-cross"></i>
+            <h3>EARLY MORNING PRAYER</h3>
+            <p>Every day morning 5 am</p>
+        </div>
+    </div>
+</section>
+
+
+<!-- UPCOMING MEETINGS -->
+<section class="meetings">
+  <h2>Upcoming Events</h2>
+
+  <div class="meeting-container">
+    {% for meeting in meetings %}
+      <div class="meeting-card">
+        <img src="{{ meeting.image.url }}" alt="{{ meeting.title }}">
+        <h3>{{ meeting.title }}</h3>
+        <p>{{ meeting.description }}</p>
+      </div>
+    {% empty %}
+      <p>No upcoming Events.</p>
+    {% endfor %}
+  </div>
+</section>
+<!-- PRAYER TIMINGS --
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <div class="footer-left">
+
+      <div class="footer-box">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="/home/">Home</a></li>
+          <li><a href="/about/">About</a></li>
+          <li><a href="/galary/">Galary</a></li>
+          <li><a href="/contact/">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-box">
+        <h3>Contact</h3>
+        <p>Email : jesuswithuschurch25@gmail.com</p>
+        <p>Phone: +91 9489747203</p>
+        <p>Location : 755V+887 ,Mela Vilai, Vencode, Tamil Nadu 629171</p>
+      </div>
+    </div>
+
+    <!-- RIGHT SIDE MAP -->
+    <div class="footer-map">
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.446041351605!2d77.19336799999999!3d8.258321600000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0501c024b75143%3A0xa4f0dc465164c533!2sVillage%20Vision%20Ministries!5e0!3m2!1sen!2sin!4v1771638174463!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+</div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 VVM  developed by jerin| All Rights Reserved</p>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/mainso.js' %}"></script>
+</body>
+</html>

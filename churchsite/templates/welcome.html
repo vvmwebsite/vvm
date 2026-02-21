@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+    <style>
+        body{
+            margin:0;
+            height:100vh;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background:linear-gradient(to right, #3a003a, #800040);
+            color:white;
+            font-family: Arial, sans-serif;
+        }
+
+        .welcome-box{
+            text-align:center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h1{
+            font-size:50px;
+            margin-bottom:10px;
+        }
+
+        p{
+            font-size:20px;
+            letter-spacing:1px;
+        }
+
+        @keyframes fadeIn{
+            from{opacity:0; transform:scale(0.8);}
+            to{opacity:1; transform:scale(1);}
+        }
+    </style>
+
+    <script>
+        setTimeout(function(){
+            window.location.href = "/home/";   // change to your home page URL
+        }, 2000); // 2 seconds
+    </script>
+</head>
+<body>
+
+<div class="welcome-box">
+    <h1>Welcome to Village Vision Ministries </h1>
+    <p>Jesus With Us Church, Vencode</p>
+</div>
+
+</body>
+</html>

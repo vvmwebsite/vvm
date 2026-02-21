@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<title>vvm-offerings</title>
+{% load static %}
+<link rel="stylesheet" href="{% static 'vvm.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+/* Set uniform size for gallery images */
+.gallery-img {
+    width: 100%;       /* Full width of card */
+    height: 200px;     /* Default height for all images */
+    object-fit: cover;  /* Crops and fills without distortion */
+}
+</style>
+</head>
+<body >
+    {% load static %}
+
+  <nav class="navbar navbar-expand-lg" style="background-color: rgb(33, 0, 34);">
+  <div class="container">
+    <!-- Logo and Text -->
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <img src="/static/logo.png" alt="Church Logo" class="rounded-circle" style="height: 60px;">
+      <div class="logo-text text-white">
+        <h2 style="font-size: 24px; margin:0;">Village Vision Ministries</h2>
+        <h3 style="font-size: 16px; margin:0;">Jesus With Us Church - Vencode</h3>
+      </div>
+    </a>
+
+    <!-- Hamburger for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon" style="color:white;"></span>
+    </button>
+
+    <!-- Menu Items -->
+    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item"><a class="nav-link text-white" href="/home/">Home</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/about/">About Ministry</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/live/">Live</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/offerings/">Offerings</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/gallery_folders/">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link text-white" href="/contact/">Contact</a></li>
+        <li class="nav-item ms-2">
+          <button class="btn btn-outline-light" onclick="toggleDark()">🌙</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+   {% load static %}
+
+    <div class="container py-5">
+     <h2 class="text-center mb-4">Gallery Folders</h2>
+     <div class="row g-4">
+    {% for folder in folders %}
+      <div class="col-md-3 col-sm-6 text-center">
+        <a href="{% url 'folder_images' folder.id %}" class="btn btn-outline-primary w-100 py-3 "style="font-weight: bold">
+          {{ folder.name }}
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-bottom">
+    <p>© 2026 VVM  developed by jerin| All Rights Reserved</p>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/mainso.js' %}"></script>
+</body>
+</html>
+
+
+
