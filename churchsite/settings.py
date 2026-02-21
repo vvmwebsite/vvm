@@ -26,7 +26,7 @@ SECRET_KEY =os.environ.get( 'django-insecure-tyos#h4kbir*s$-n=k5&+!x2k+rirn$u7)l
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['churchsite.onrender.com']
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", "churchsite.onrender.com").split(",")
 
 
 # Application definition
