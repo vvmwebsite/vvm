@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 
 from pathlib import Path
 import os
+import dj_database_url
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,8 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('cp*lu+x$^mh-a!b1*^_blr!q1($!!s)d#!(6yk+txb81btjm24', 'fallback-secret-key-for-dev')
-
+SECRET_KEY = os.environ.get('cplu+x$^mh-a!b1^_blr!q1($!!s)d#!(6yk+txb81btjm24)', 'fallback-secret-key-for-dev')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
@@ -74,16 +75,12 @@ WSGI_APPLICATION = 'churchsite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
-
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'churchdb',
-        'USER': 'root',
-        'PASSWORD': '12345',
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),  # Render PostgreSQL URL
+        conn_max_age=600,
+        ssl_require=True
+    )
 }
 
 
@@ -123,7 +120,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
-STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'))
+STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
 
 MEDIA_URL='/media/'
 MEDIA_ROOT=BASE_DIR/'media'
