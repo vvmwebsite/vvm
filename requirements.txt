@@ -2,8 +2,4 @@ Django
 gunicorn
 psycopg2-binary
 whitenoise
-mysqlclient
-=======
-whitenoise 
-mysqlclient
->>>>>>> cc383b2 (ret)
+dj-database-url
