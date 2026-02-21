@@ -21,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY =os.environ.get( 'django-insecure-tyos#h4kbir*s$-n=k5&+!x2k+rirn$u7)l7s1o-yu3k30uw6v')
+SECRET_KEY = os.environ.get('cp*lu+x$^mh-a!b1*^_blr!q1($!!s)d#!(6yk+txb81btjm24', 'fallback-secret-key-for-dev')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['yourapp.onrender.com']
+ALLOWED_HOSTS = ['churchsite.onrender.com','villagevissionministries.onrender.com']
 
 
 # Application definition
@@ -43,7 +43,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-     'whitenoise.middleware.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -123,9 +123,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
-STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'))
 
 MEDIA_URL='/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR/'media')
+MEDIA_ROOT=BASE_DIR/'media'
 
