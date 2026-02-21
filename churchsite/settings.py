@@ -76,11 +76,14 @@ WSGI_APPLICATION = 'churchsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL'),  # Render PostgreSQL URL
-        conn_max_age=600,
-        ssl_require=True
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ.get('vvm_db_10vt'),
+        'USER': os.environ.get('vvm_db_10vt_user'),
+        'PASSWORD': os.environ.get('Jg2S1TMkxSC4PteIkArqWGm8pEEUscj1'),
+        'HOST': os.environ.get('dpg-d6csiqsr85hc73bf2dl0-a'),
+        'PORT': os.environ.get('5432'),
+    }
 }
 
 
