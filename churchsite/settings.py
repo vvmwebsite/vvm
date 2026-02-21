@@ -26,7 +26,7 @@ SECRET_KEY = os.environ.get('cp*lu+x$^mh-a!b1*^_blr!q1($!!s)d#!(6yk+txb81btjm24'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['churchsite.onrender.com','villagevissionministries.onrender.com']
+ALLOWED_HOSTS = ['yourapp.onrender.com']
 
 
 # Application definition
@@ -123,7 +123,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles')
-STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'))
+STATICFILES_DIRS=(os.path.join(BASE_DIR,'static'),)
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL='/media/'
 MEDIA_ROOT=BASE_DIR/'media'
