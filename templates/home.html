@@ -79,7 +79,7 @@
       
       <!-- DAILY VERSE IMAGE (LEFT) -->
       <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
-        {% if verse %}
+        {% if verse and verse.image %}
           <img src="{{ verse.image.url }}" alt="Daily Verse" class="img-fluid rounded shadow w-100">
         {% else %}
           <p class="text-white text-center">No verse uploaded</p>
@@ -194,14 +194,16 @@
 
   <div class="meeting-container">
     {% for meeting in meetings %}
-      <div class="meeting-card">
-        <img src="{{ meeting.image.url }}" alt="{{ meeting.title }}">
-        <h3>{{ meeting.title }}</h3>
-        <p>{{ meeting.description }}</p>
-      </div>
-    {% empty %}
-      <p>No upcoming Events.</p>
-    {% endfor %}
+  <div class="meeting-card">
+    {% if meeting.image %}
+      <img src="{{ meeting.image.url }}" alt="{{ meeting.title }}">
+          {% endif %}
+          <h3>{{ meeting.title }}</h3>
+          <p>{{ meeting.description }}</p>
+        </div>
+      {% empty %}
+        <p>No upcoming Events.</p>
+      {% endfor %}
   </div>
 </section>
 <!-- PRAYER TIMINGS --

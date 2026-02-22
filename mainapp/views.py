@@ -5,8 +5,8 @@ def welcome(request):
     return render(request, 'welcome.html')
 
 def home(request):
-    verse = DailyVerse.objects.last()
-    meetings = Meeting.objects.all().order_by('date')
+    verse = DailyVerse.objects.order_by('-id').first()
+    meetings = Meeting.objects.order_by('date')
     return render(request, 'home.html', {
         'verse': verse,
         'meetings': meetings
