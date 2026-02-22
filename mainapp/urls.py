@@ -10,4 +10,4 @@ urlpatterns = [
     path('gallery_folders/<int:folder_id>/', views.folder_images, name='folder_images'),
     path("contact/",views.contact,name="contact"),
     path("offerings/",views.offerings,name="offerings"),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
