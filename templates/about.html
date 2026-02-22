@@ -31,38 +31,88 @@
       color: #333;
       text-align: center;
     }
+    /* Custom Hamburger Styles */
+    .navbar-toggler {
+      border: none !important;
+      padding: 0;
+      outline: none !important;
+      box-shadow: none !important;
+    }
+
+    .hamburger-icon {
+      width: 25px;
+      height: 20px;
+      position: relative;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .hamburger-icon span {
+      display: block;
+      height: 2px;
+      width: 100%;
+      background-color: #ffffff; /* Adjust color to your theme */
+      border-radius: 2px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    /* Animation to 'X' when menu is open */
+    .navbar-toggler:not(.collapsed) .hamburger-icon span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+      background-color: #ff6b6b; /* Optional: color change on open */
+    }
+
+    .navbar-toggler:not(.collapsed) .hamburger-icon span:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+
+    .navbar-toggler:not(.collapsed) .hamburger-icon span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+      background-color: #ff6b6b;
+    }
+
+    /* Responsive adjustment for the brand container */
+    @media (max-width: 350px) {
+      .navbar-brand {
+        max-width: 70%;
+      }
+    }
   </style>
   <body>
     {% load static %}
 
-  <nav class="navbar navbar-expand-lg" style="background-color: rgb(33, 0, 34);">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(33, 0, 34);">
   <div class="container">
-    <!-- Logo and Text -->
-    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-      <img src="/static/logo.png" alt="Church Logo" class="rounded-circle" style="height: 60px;">
-      <div class="logo-text text-white">
-        <h2 style="font-size: 24px; margin:0;">Village Vision Ministries</h2>
-        <h3 style="font-size: 16px; margin:0;">Jesus With Us Church - Vencode</h3>
+    <a class="navbar-brand d-flex align-items-center gap-2 flex-nowrap" href="#" style="max-width: 80%;">
+      <img src="/static/logo.png" alt="Church Logo" class="rounded-circle" style="height: 45px; width: 45px; flex-shrink: 0;">
+      <div class="logo-text text-white text-wrap">
+        <h2 style="font-size: clamp(14px, 4vw, 20px); margin:0; line-height: 1.2;">Village Vision Ministries</h2>
+        <h3 style="font-size: clamp(10px, 3vw, 14px); margin:0; opacity: 0.9;">Jesus With Us Church - Vencode</h3>
       </div>
     </a>
 
-    <!-- Hamburger for mobile -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon" style="color:white;"></span>
-    </button>
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <div class="hamburger-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</button>
 
-    <!-- Menu Items -->
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav align-items-center">
+      <ul class="navbar-nav align-items-center pt-3 pt-lg-0">
         <li class="nav-item"><a class="nav-link text-white" href="/home/">Home</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="/about/">About Ministry</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="/live/">Live</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="/offerings/">Offerings</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="/gallery_folders/">Gallery</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="/contact/">Contact</a></li>
-        <li class="nav-item ms-2">
-          <button class="btn btn-outline-light" onclick="toggleDark()">🌙</button>
+        <li class="nav-item mt-2 mt-lg-0 ms-lg-2">
+          <button class="btn btn-outline-light btn-sm" onclick="toggleDark()">🌙</button>
         </li>
       </ul>
     </div>

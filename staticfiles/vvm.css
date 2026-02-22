@@ -221,12 +221,12 @@ ul li {
 }
 
 /* COLORS */
-.blue{ background:linear-gradient(135deg,#03a9f4,#0288d1); }
-.purple{ background:linear-gradient(135deg,#8e24aa,#5e35b1); }
-.green{ background:linear-gradient(135deg,#43a047,#2e7d32); }
-.orange{ background:linear-gradient(135deg,#ff9800,#ef6c00); }
-.red{ background:linear-gradient(135deg,#f44336,#c62828); }
-.pink{ background:linear-gradient(135deg,#ec407a,#ad1457); }
+.purple { background: linear-gradient(135deg, #5e2a8a, #3f1d6b); }
+.green  { background: linear-gradient(135deg, #1b5e20, #0d3d14); }
+.blue   { background: linear-gradient(135deg, #0d47a1, #002f6c); }
+.orange { background: linear-gradient(135deg, #e65100, #bf360c); }
+.red    { background: linear-gradient(135deg, #b71c1c, #7f0000); }
+.pink   { background: linear-gradient(135deg, #880e4f, #560027); }
 
 
 .card:hover{

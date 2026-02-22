@@ -2,67 +2,114 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>vvm</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   {% load static %}
   <link rel="stylesheet" href="{% static 'vvm.css' %}">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <title>VVM Live Stream</title>
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
-<body>
-    {% load static %}
+<style>
+  .navbar-toggler:not(.collapsed) .hamburger-icon span:nth-child(1) {
+      transform: translateY(9px) rotate(45deg);
+      background-color: #ff6b6b; /* Optional: color change on open */
+    }
 
-  <nav class="navbar navbar-expand-lg" style="background-color: rgb(33, 0, 34);">
+    .navbar-toggler:not(.collapsed) .hamburger-icon span:nth-child(2) {
+      opacity: 0;
+      transform: translateX(-10px);
+    }
+
+    .navbar-toggler:not(.collapsed) .hamburger-icon span:nth-child(3) {
+      transform: translateY(-9px) rotate(-45deg);
+      background-color: #ff6b6b;
+    }
+
+    /* Responsive adjustment for the brand container */
+    @media (max-width: 350px) {
+      .navbar-brand {
+        max-width: 70%;
+      }
+    }
+</style>
+<body>
+
+<!-- Navbar -->
+ <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(33, 0, 34);">
   <div class="container">
-    <!-- Logo and Text -->
-    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-      <img src="/static/logo.png" alt="Church Logo" class="rounded-circle" style="height: 60px;">
-      <div class="logo-text text-white">
-        <h2 style="font-size: 24px; margin:0;">Village Vision Ministries</h2>
-        <h3 style="font-size: 16px; margin:0;">Jesus With Us Church - Vencode</h3>
+    <a class="navbar-brand d-flex align-items-center gap-2 flex-nowrap" href="#" style="max-width: 80%;">
+      <img src="/static/logo.png" alt="Church Logo" class="rounded-circle" style="height: 45px; width: 45px; flex-shrink: 0;">
+      <div class="logo-text text-white text-wrap">
+        <h2 style="font-size: clamp(14px, 4vw, 20px); margin:0; line-height: 1.2;">Village Vision Ministries</h2>
+        <h3 style="font-size: clamp(10px, 3vw, 14px); margin:0; opacity: 0.9;">Jesus With Us Church - Vencode</h3>
       </div>
     </a>
 
-    <!-- Hamburger for mobile -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon" style="color:white;"></span>
-    </button>
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <div class="hamburger-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</button>
 
-    <!-- Menu Items -->
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav align-items-center">
+      <ul class="navbar-nav align-items-center pt-3 pt-lg-0">
         <li class="nav-item"><a class="nav-link text-white" href="/home/">Home</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="/about/">About Ministry</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="/live/">Live</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="/offerings/">Offerings</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="/gallery_folders/">Gallery</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="/contact/">Contact</a></li>
-        <li class="nav-item ms-2">
-          <button class="btn btn-outline-light" onclick="toggleDark()">🌙</button>
+        <li class="nav-item mt-2 mt-lg-0 ms-lg-2">
+          <button class="btn btn-outline-light btn-sm" onclick="toggleDark()">🌙</button>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-<!-- <div class="ratio" style="--bs-aspect-ratio: 56.25%; height: 70vh;"> -->
-  <!-- <iframe src="https://www.youtube.com/embed/live_stream?channel=UCY5-HuOOaR9yNiE-KW6pKaw"
-          title="VVM Live Stream"
-          allowfullscreen>
-  </iframe> -->
 
-  <div class="ratio ratio-16x9">
-  <iframe src="https://www.youtube.com/embed/LIVE_VIDEO_ID?autoplay=1"
-          title="VVM Live Stream"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen>
-  </iframe>
-</div>
-</div>
-<footer class="footer">
-  <div class="footer-bottom">
-    <p>© 2026 VVM  developed by jerin| All Rights Reserved</p>
+
+<!-- Live Stream Section -->
+<!-- Live Stream Section -->
+<section class="py-4">
+  <div class="container">
+    <!-- YouTube Live Stream -->
+    <div class="ratio ratio-16x9 mb-3">
+      <iframe 
+        src="https://www.youtube.com/embed/live_stream?channel=UCY5-HuOOaR9yNiE-KW6pKaw&autoplay=1" 
+        title="VVM Live Stream" 
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- Channel Description -->
+    <div class="text-center">
+      <h3>VVM Gospel Media</h3>
+      <p>
+        Welcome to the official YouTube channel of <strong>Village Vision Ministries (VVM – Jesus With Us Church, Vencode)</strong>. 
+        This channel shares live worship services, gospel messages, Bible teachings, prayer meetings, and inspirational videos. 
+        Stay connected and be part of our global faith community.
+      </p>
+      <a href="https://youtube.com/@vvmgospelmedia7399?si=9LT8Xw7uoXrFLBkr" target="_blank" class="btn btn-primary">
+        Visit Channel
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer mt-auto" style="background-color: rgb(33, 0, 34); color: white; padding: 10px 0;">
+  <div class="container text-center">
+    <p class="mb-0">© 2026 VVM developed by jerin | All Rights Reserved</p>
   </div>
 </footer>
+
+<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="{% static 'js/mainso.js' %}"></script>
 </body>

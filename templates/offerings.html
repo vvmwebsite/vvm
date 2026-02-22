@@ -2,145 +2,230 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-<title>vvm-offerings</title>
-{% load static %}
-<link rel="stylesheet" href="{% static 'vvm.css' %}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VVM Offerings</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'vvm.css' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Offerings section */
+    .offering-text {
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: justify;
+    }
+    .offering-card {
+      max-width: 500px;
+      width: 100%;
+      background-color: #fff;
+      color: #000;
+    }
+
+    @media (max-width: 992px) {
+      .offering-section .col-md-6 {
+        text-align: center;
+      }
+      .offering-card {
+        margin: 0 auto;
+      }
+    }
+    /* Adjust offerings and footer for 1024px screens */
+@media (max-width: 1024px) {
+  /* Offerings Section */
+  .offering-section .row {
+    flex-direction: column-reverse; /* Stack text and card */
+    gap: 25px;
+  }
+  .offering-section .col-md-6 {
+    text-align: center;
+    margin: 0 auto;
+  }
+  .offering-card {
+    max-width: 450px; /* Slightly smaller card on laptop screens */
+    width: 90%;
+  }
+
+  /* Footer adjustments */
+  .footer-container, .footer .row {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+  .footer-map iframe {
+    height: 180px; /* slightly smaller than desktop */
+  }
+}
+
+    /* Footer */
+    .footer {
+      background-color: rgb(33, 0, 34);
+      color: white;
+      width: 100%;
+    }
+    .footer-box h3 {
+      font-size: 18px;
+      border-bottom: 2px solid #ffffff33;
+      display: inline-block;
+      padding-bottom: 3px;
+      margin-bottom: 10px;
+    }
+    .footer-box p {
+      font-size: 14px;
+      line-height: 1.5;
+      margin-bottom: 5px;
+    }
+    .footer-map iframe {
+      width: 100%;
+      height: 200px;
+      border: 0;
+      border-radius: 10px;
+    }
+    .footer-bottom {
+      font-size: 13px;
+      text-align: center;
+      opacity: 0.8;
+    }
+
+    @media (max-width: 768px) {
+      .footer-map iframe {
+        height: 150px;
+      }
+      .offering-section .row {
+        flex-direction: column-reverse;
+        gap: 30px;
+      }
+      .offering-text {
+        text-align: center;
+      }
+    }
+
+    /* Navbar adjustments */
+    .navbar-brand h2, .navbar-brand h3 {
+      margin: 0;
+      line-height: 1.2;
+    }
+    .navbar-brand img {
+      height: 45px;
+      width: 45px;
+      flex-shrink: 0;
+    }
+    @media (max-width: 350px) {
+      .navbar-brand {
+        max-width: 70%;
+      }
+    }
+  </style>
 </head>
-<body >
-    {% load static %}
+<body>
+  {% load static %}
 
-  <nav class="navbar navbar-expand-lg" style="background-color: rgb(33, 0, 34);">
-  <div class="container">
-    <!-- Logo and Text -->
-    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-      <img src="/static/logo.png" alt="Church Logo" class="rounded-circle" style="height: 60px;">
-      <div class="logo-text text-white">
-        <h2 style="font-size: 24px; margin:0;">Village Vision Ministries</h2>
-        <h3 style="font-size: 16px; margin:0;">Jesus With Us Church - Vencode</h3>
-      </div>
-    </a>
-
-    <!-- Hamburger for mobile -->
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon" style="color:white;"></span>
-    </button>
-
-    <!-- Menu Items -->
-    <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav align-items-center">
-        <li class="nav-item"><a class="nav-link text-white" href="/home/">Home</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="/about/">About Ministry</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="/live/">Live</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="/offerings/">Offerings</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="/gallery_folders/">Gallery</a></li>
-        <li class="nav-item"><a class="nav-link text-white" href="/contact/">Contact</a></li>
-        <li class="nav-item ms-2">
-          <button class="btn btn-outline-light" onclick="toggleDark()">🌙</button>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
-<section class="offering-section py-5">
-  <div class="container">
-    <div class="row align-items-start g-4">
-
-      <!-- LEFT SIDE -->
-      <div class="col-md-6">
-        <h2 class="fw-bold mb-3">Offerings to Village Vision Ministries</h2>
-        <br>
-        <br>
-
-        <p class="offering-text">
-          Offerings are an act of worship and thanksgiving to God.  
-          Through your generous giving, Village Vision Ministries continues to spread
-          the Gospel of Jesus Christ, support prayer meetings, outreach ministries,
-          and help those in need.
-          <br><br>
-          The Bible reminds us:
-          <strong>
-            “Each of you should give what you have decided in your heart to give,
-            not reluctantly or under compulsion, for God loves a cheerful giver.”
-            (2 Corinthians 9:7)
-          </strong>
-          <br><br>
-          Your offering is a seed of faith that brings hope, healing, and salvation
-          to many lives.
-        </p>
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <!-- RIGHT SIDE -->
-    <div class="col-md-6 d-flex justify-content-center">
-  <div class="card offering-card shadow-sm" 
-       style="color: #000; background-color: #fff; max-width: 500px; width: 100%;">
-    <div class="card-body">
-      <h4 class="fw-bold mb-3">Payment Details</h4>
-
-      <!-- BANK -->
-      <p><strong>Bank Transfer</strong></p>
-      <p><strong> 
-        Account Name: Village Vision Ministries<br>
-        Bank Name: Bank of Baroda<br>
-        Account No: 66320200000092 <br>
-        IFSC Code: BARB0VJTHEP<br>
-        Branch: Thengapattanam
-      </p></strong>
-
-
-      <!-- GPay / UPI -->
-      <p><strong>GPay / UPI:9751538744</strong></p>
-      <!-- QR -->
-      <div class="text-center mt-3">
-        <p class="fw-semibold">Scan & Pay</p>
-        <img src="{% static 'upi.png' %}" 
-             alt="UPI QR Code" 
-             style="max-width: 150px; height: auto;">
-      </div>
-
-    </div>
-  </div>
-</div>
-</section>
-
-<!-- FOOTER -->
-<footer class="footer">
-  <div class="footer-container">
-
-    <div class="footer-left">
-
-      <div class="footer-box">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="/home/">Home</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/galary/">Galary</a></li>
-          <li><a href="/contact/">Contact</a></li>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(33, 0, 34);">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2 flex-nowrap" href="#">
+        <img src="/static/logo.png" alt="Church Logo" class="rounded-circle">
+        <div class="logo-text text-white text-wrap">
+          <h2 style="font-size: clamp(14px, 4vw, 20px);">Village Vision Ministries</h2>
+          <h3 style="font-size: clamp(10px, 3vw, 14px); opacity: 0.9;">Jesus With Us Church - Vencode</h3>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav align-items-center pt-3 pt-lg-0">
+          <li class="nav-item"><a class="nav-link text-white" href="/home/">Home</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="/about/">About Ministry</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="/live/">Live</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="/offerings/">Offerings</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="/gallery_folders/">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="/contact/">Contact</a></li>
+          <li class="nav-item mt-2 mt-lg-0 ms-lg-2">
+            <button class="btn btn-outline-light btn-sm" onclick="toggleDark()">🌙</button>
+          </li>
         </ul>
       </div>
+    </div>
+  </nav>
 
-      <div class="footer-box">
-        <h3>Contact</h3>
-        <p>Email:jesuswithuschurch25@gmail.com</p>
-        <p>Phone: +91 9489747203</p>
-        <p>Location:755V+887,Mela Vilai, Vencode, Tamil Nadu 629171</p>
+  <!-- Offerings Section -->
+  <section class="offering-section py-5">
+    <div class="container">
+      <div class="row align-items-start g-4">
+        <!-- Left Text -->
+        <div class="col-md-6">
+          <h2 class="fw-bold mb-3">Offerings to Village Vision Ministries</h2>
+          <p class="offering-text">
+            Offerings are an act of worship and thanksgiving to God.  
+            Through your generous giving, Village Vision Ministries continues to spread
+            the Gospel of Jesus Christ, support prayer meetings, outreach ministries,
+            and help those in need.
+            <br><br>
+            The Bible reminds us:
+            <strong>
+              “Each of you should give what you have decided in your heart to give,
+              not reluctantly or under compulsion, for God loves a cheerful giver.” (2 Corinthians 9:7)
+            </strong>
+            <br><br>
+            Your offering is a seed of faith that brings hope, healing, and salvation
+            to many lives.
+          </p>
+        </div>
+
+        <!-- Right Payment Card -->
+        <div class="col-md-6 d-flex justify-content-center">
+          <div class="card offering-card shadow-sm p-3">
+            <div class="card-body">
+              <h4 class="fw-bold mb-3">Payment Details</h4>
+              <p><strong>Bank Transfer</strong></p>
+              <p>
+                Account Name: Village Vision Ministries<br>
+                Bank Name: Bank of Baroda<br>
+                Account No: 66320200000092<br>
+                IFSC Code: BARB0VJTHEP<br>
+                Branch: Thengapattanam
+              </p>
+              <p><strong>GPay / UPI: 9751538744</strong></p>
+              <div class="text-center mt-3">
+                <p class="fw-semibold">Scan & Pay</p>
+                <img src="{% static 'upi.png' %}" alt="UPI QR Code" style="max-width: 150px; height: auto;">
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  </section>
 
-    <!-- RIGHT SIDE MAP -->
-    <div class="footer-map">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.446041351605!2d77.19336799999999!3d8.258321600000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0501c024b75143%3A0xa4f0dc465164c533!2sVillage%20Vision%20Ministries!5e0!3m2!1sen!2sin!4v1771638174463!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-</div>
+  <!-- Footer -->
+  <footer class="footer mt-4 pt-4 pb-3">
+    <div class="container">
+      <div class="row align-items-center g-4">
+        <div class="col-md-6">
+          <div class="footer-box">
+            <h3>Contact</h3>
+            <p>Email: jesuswithuschurch25@gmail.com</p>
+            <p>Phone: +91 9489747203</p>
+            <p>Location: 755V+887, Mela Vilai, Vencode, Tamil Nadu 629171</p>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="footer-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3949.123456789!2d77.1234567!3d8.1234567!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOMKwMDcnMzQuNCJOIDc3wrAwNyczNC40IkU!5e0!3m2!1sen!2sin!4v1234567890" 
+                    width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+          </div>
+        </div>
+      </div>
+      <hr class="mt-3 mb-2" style="background-color: rgba(255,255,255,0.2);">
+      <div class="footer-bottom text-center">
+        <p class="mb-0" style="font-size: 13px; opacity: 0.8;">© 2026 VVM developed by Jerin | All Rights Reserved</p>
+      </div>
+    </div>
+  </footer>
 
-  </div>
-
-  <div class="footer-bottom">
-    <p>© 2026 VVM  developed by jerin| All Rights Reserved</p>
-  </div>
-</footer>
-<script src="{% static 'js/mainso.js' %}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="{% static 'js/mainso.js' %}"></script>
 </body>
 </html>

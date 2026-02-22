@@ -7,11 +7,59 @@ html, body{
   
 
 }
+
+/* Custom Hamburger Styling */
+.navbar-toggler {
+  border: none !important;
+  padding: 0;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.hamburger-icon {
+  width: 25px;
+  height: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.hamburger-icon span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: #ffffff; /* This makes the lines white */
+  border-radius: 2px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* This part creates the "X" animation when clicked */
+.navbar-toggler:not(.collapsed) .hamburger-icon span:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.navbar-toggler:not(.collapsed) .hamburger-icon span:nth-child(2) {
+  opacity: 0;
+}
+
+.navbar-toggler:not(.collapsed) .hamburger-icon span:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+
 body {
     display: flex;
     flex-direction: column;
 }
+.text {
+  color: #000; /* black in light mode */
+}
 
+body.dark .text {
+  color: #fff; /* white in dark mode */
+}
+ 
 /* Section background */
 .dark-bg {
     background-color: #121212; /* dark section background */
@@ -384,22 +432,7 @@ body.dark .welcome-box {
   
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
-  .footer-container {
-    flex-direction: column;
-    gap: 30px;
-  }
 
-  .footer-left {
-    flex-direction: column;
-    gap: 20px;
-  }
-
-  .footer-map {
-    width: 100%;
-    height: 200px;
-  }
-}
 .meeting-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -484,27 +517,32 @@ body.dark .welcome-box {
 }
 
 @media (max-width: 768px) {
-    .hero {
-        padding: 50px 15px;
-    }
-    .hero h1 {
-        font-size: 24px;
-    }
-    .menu {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .live {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .contact-wrapper {
-        flex-direction: column;
-        gap: 15px;
-    }
-    .card-grid {
-        gap: 20px;
-    }
+  .hero {
+    padding: 50px 15px;
+  }
+
+  .hero h1 {
+    font-size: 24px;
+  }
+
+  .navbar-nav {
+    text-align: center; /* center links on mobile */
+  }
+
+  .missionary-info p {
+    font-size: 16px;  /* smaller font for mobile */
+    padding: 0 10px;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-map {
+    width: 100%;
+    height: 200px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -526,4 +564,20 @@ body.dark .welcome-box {
     .footer h3 {
         font-size: 14px;
     }
+}
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .footer-left {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .footer-map {
+    width: 100%;
+    height: 200px;
+  }
 }
