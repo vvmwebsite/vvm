@@ -107,6 +107,59 @@
         max-width: 70%;
       }
     }
+    /* Responsive Fixes for Mobile */
+@media (max-width: 768px) {
+  /* Fix Navbar Brand */
+  .navbar-brand {
+    display: flex !important;
+    align-items: center;
+    white-space: normal; /* Allows text to wrap if needed */
+  }
+  
+  .navbar-brand img {
+    height: 45px !important; /* Smaller logo on mobile */
+  }
+
+  .logo-text h2 {
+    font-size: 16px !important;
+  }
+
+  .logo-text h3 {
+    font-size: 12px !important;
+  }
+
+  /* Fix Social Links (Info Section) */
+  .links-row {
+    flex-wrap: wrap; /* Wraps buttons so they don't overflow */
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .links-row a {
+    font-size: 14px;
+    padding: 8px 15px;
+  }
+
+  /* Fix Pastors & Timings Cards */
+  .pastor img {
+    width: 200px !important; /* Smaller pastor images on mobile */
+    height: auto !important;
+  }
+
+  .timings .card {
+    margin-bottom: 15px;
+  }
+}
+
+/* Specific fix for ultra-small screens (like your 320px screenshot) */
+@media (max-width: 400px) {
+  .logo-text h2 {
+    font-size: 14px !important;
+  }
+  .logo-text h3 {
+    display: none; /* Hides the second line of text on tiny screens to save space */
+  }
+}
   </style>
 
 </head>
@@ -115,27 +168,27 @@
 {% load static %}
 
 <!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: rgb(33, 0, 34);">
-  <div class="container">
-    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
-      <img src="/static/logo.png" alt="Church Logo" class="rounded-circle" style="height: 60px;">
+<nav class="navbar navbar-expand-lg navbar-dark py-2" style="background-color: rgb(33, 0, 34);">
+  <div class="container d-flex justify-content-between align-items-center">
+    
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#" style="max-width: 80%;">
+      <img src="/static/logo.png" alt="Church Logo" class="rounded-circle" style="height: 50px;">
       <div class="logo-text text-white">
-        <h2 style="font-size: 24px; margin:0;">Village Vision Ministries</h2>
-        <h3 style="font-size: 16px; margin:0;">Jesus With Us Church - Vencode</h3>
+        <h2 style="font-size: 1.2rem; margin:0; line-height: 1.1;">Village Vision Ministries</h2>
+        <h3 class="d-none d-sm-block" style="font-size: 14px; margin:0;">Jesus With Us Church - Vencode</h3>
       </div>
     </a>
 
-    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-  <div class="hamburger-icon">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</button>
+    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <div class="hamburger-icon">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
 
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav align-items-center text-center">
+      <ul class="navbar-nav align-items-center text-center pt-3 pt-lg-0">
         <li class="nav-item"><a class="nav-link text-white" href="/home/">Home</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="/about/">About Ministry</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="/live/">Live</a></li>
@@ -143,7 +196,7 @@
         <li class="nav-item"><a class="nav-link text-white" href="/gallery_folders/">Gallery</a></li>
         <li class="nav-item"><a class="nav-link text-white" href="/contact/">Contact</a></li>
         <li class="nav-item mt-2 mt-lg-0 ms-lg-2">
-          <button class="btn btn-outline-light" onclick="toggleDark()">🌙</button>
+          <button class="btn btn-outline-light btn-sm" onclick="toggleDark()">🌙</button>
         </li>
       </ul>
     </div>
@@ -323,38 +376,35 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="footer mt-auto">
+<footer class="footer mt-auto py-5 bg-dark text-white">
   <div class="container">
-    <div class="row g-4">
-
-      <div class="col-md-6 col-lg-4">
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="/home/">Home</a></li>
-          <li><a href="/about/">About</a></li>
-          <li><a href="/galary/">Galary</a></li>
-          <li><a href="/contact/">Contact</a></li>
+    <div class="row g-4 text-center text-md-start"> <div class="col-md-4">
+        <h3 class="h5 mb-3">Quick Links</h3>
+        <ul class="list-unstyled">
+          <li><a href="/home/" class="text-white text-decoration-none">Home</a></li>
+          <li><a href="/about/" class="text-white text-decoration-none">About</a></li>
+          <li><a href="/gallery/" class="text-white text-decoration-none">Gallery</a></li>
+          <li><a href="/contact/" class="text-white text-decoration-none">Contact</a></li>
         </ul>
       </div>
 
-      <div class="col-md-6 col-lg-4">
-        <h3>Contact</h3>
-        <p>Email : jesuswithuschurch25@gmail.com</p>
-        <p>Phone: +91 9489747203</p>
-        <p>Location : 755V+887 ,Mela Vilai, Vencode, Tamil Nadu 629171</p>
+      <div class="col-md-4">
+        <h3 class="h5 mb-3">Contact</h3>
+        <p class="small mb-1">Email: jesuswithuschurch25@gmail.com</p>
+        <p class="small mb-1">Phone: +91 9489747203</p>
+        <p class="small">Location: Vencode, Tamil Nadu 629171</p>
       </div>
 
-      <div class="col-lg-4">
-        <div class="footer-map">
+      <div class="col-md-4">
+        <div class="footer-map shadow-sm">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3948.446041351605!2d77.19336799999999!3d8.258321600000002!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0501c024b75143%3A0xa4f0dc465164c533!2sVillage%20Vision%20Ministries!5e0!3m2!1sen!2sin!4v1771638174463!5m2!1sen!2sin"
             class="w-100 rounded" height="220" style="border:0;" loading="lazy"></iframe>
         </div>
       </div>
 
     </div>
-
-    <div class="footer-bottom text-center mt-3">
-      <p>© 2026 VVM developed by jerin | All Rights Reserved</p>
+    <div class="footer-bottom text-center mt-4 pt-3 border-top border-secondary">
+      <p class="small mb-0 opacity-75">© 2026 VVM developed by jerin | All Rights Reserved</p>
     </div>
   </div>
 </footer>
