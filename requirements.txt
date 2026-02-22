@@ -5,3 +5,4 @@ whitenoise
 dj-database-url
 pillow
 cloudinary
+cloudinary_storage
