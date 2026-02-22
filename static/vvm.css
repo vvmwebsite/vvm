@@ -54,16 +54,7 @@ body.dark {
 }
 
 
-/* NAVBAR */
-.navbar{
-    width: 100%;
-    background: rgb(33, 0, 34);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 40px;
-    
-}
+
 
 /* LEFT SIDE (LOGO + TEXT) */
 .left{
@@ -471,9 +462,9 @@ body.dark .welcome-box {
 /* Payment card text color */
 .offering-card {
     color: #000; /* Makes text black for better visibility in light mode */
-    background-color: #fff;
-    padding: ; /* Optional: ensure card background is white */
+    background-color: #fff; /* Optional: ensure card background is white */
 }
+
 @media (max-width: 1024px) {
     .hero h1 {
         font-size: 26px;

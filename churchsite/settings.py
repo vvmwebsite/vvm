@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'churchsite.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 if os.environ.get("RENDER"):
     DATABASES = {
-        'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+        'default':dj_database_url.parse(os.environ.get("DATABASE_URL"))
     }
 else:
     DATABASES = {
